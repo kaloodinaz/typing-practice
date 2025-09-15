@@ -1,0 +1,955 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>タイピング練習 | 日本語タイピングスキル向上サイト</title>
+    <meta name="description" content="無料のタイピング練習サイト。ひらがな、カタカナ、漢字のタイピングスキルを向上させよう。初心者から上級者まで対応した練習コースを提供。">
+    <meta name="keywords" content="タイピング練習, 日本語タイピング, キーボード練習, タイピングゲーム, 無料タイピング">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="タイピング練習 | 日本語タイピングスキル向上サイト">
+    <meta property="og:description" content="無料のタイピング練習サイト。ひらがな、カタカナ、漢字のタイピングスキルを向上させよう。">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    
+    <!-- SVG Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='grad' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%236366f1;stop-opacity:1' /%3E%3Cstop offset='100%25' style='stop-color:%238b5cf6;stop-opacity:1' /%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='100' height='100' rx='20' fill='url(%23grad)'/%3E%3Ctext x='50' y='35' font-family='Arial,sans-serif' font-size='24' font-weight='bold' text-anchor='middle' fill='white'%3E練%3C/text%3E%3Ctext x='50' y='75' font-family='Arial,sans-serif' font-size='16' text-anchor='middle' fill='white'%3EAB%3C/text%3E%3C/svg%3E">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Hiragino Kaku Gothic ProN', 'Noto Sans CJK JP', 'Yu Gothic', 'Meiryo', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            background: linear-gradient(135deg, #6366f1, #8b5cf6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #6366f1;
+        }
+
+        .mobile-menu {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .mobile-menu span {
+            width: 25px;
+            height: 3px;
+            background: #333;
+            margin: 3px 0;
+            transition: 0.3s;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 150px 0 80px;
+            text-align: center;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><defs><pattern id="keyboard" patternUnits="userSpaceOnUse" width="100" height="60"><rect width="90" height="50" x="5" y="5" rx="8" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="2"/></pattern></defs><rect width="100%" height="100%" fill="url(%23keyboard)"/></svg>') repeat;
+            opacity: 0.3;
+            animation: float 20s infinite linear;
+        }
+
+        @keyframes float {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-100px); }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            margin-bottom: 1rem;
+            font-weight: 700;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .hero p {
+            font-size: clamp(1.1rem, 2vw, 1.3rem);
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #ff6b6b, #ee5a6f);
+            color: white;
+            padding: 15px 40px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(255, 107, 107, 0.4);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s;
+        }
+
+        .cta-button:hover::before {
+            left: 100%;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 15px 40px rgba(255, 107, 107, 0.6);
+        }
+
+        /* Desktop Ads Block */
+        .ads-block {
+            width: 720px;
+            height: 90px;
+            background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
+            border: 2px dashed #ccc;
+            margin: 40px auto;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            border-radius: 10px;
+            color: #666;
+            font-size: 14px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .ads-block::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            animation: shimmer 2s infinite;
+        }
+
+        @keyframes shimmer {
+            0% { left: -100%; }
+            100% { left: 100%; }
+        }
+
+        /* Features Section */
+        .features {
+            padding: 80px 0;
+            background: white;
+        }
+
+        .features h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #333;
+            position: relative;
+        }
+
+        .features h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(135deg, #6366f1, #8b5cf6);
+            border-radius: 2px;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 4rem;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid rgba(99, 102, 241, 0.1);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+        }
+
+        .feature-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 1rem;
+            background: linear-gradient(135deg, #6366f1, #8b5cf6);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: white;
+        }
+
+        .feature-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: #333;
+        }
+
+        .feature-card p {
+            color: #666;
+            line-height: 1.8;
+        }
+
+        /* Levels Section */
+        .levels {
+            padding: 80px 0;
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+        }
+
+        .levels h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .levels-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 4rem;
+        }
+
+        .level-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 2rem;
+            border-radius: 20px;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: transform 0.3s ease;
+        }
+
+        .level-card:hover {
+            transform: scale(1.05);
+        }
+
+        .level-number {
+            font-size: 3rem;
+            font-weight: bold;
+            opacity: 0.8;
+            margin-bottom: 1rem;
+        }
+
+        .level-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .level-card p {
+            opacity: 0.9;
+            line-height: 1.8;
+        }
+
+        /* SEO Content Section */
+        .seo-content {
+            padding: 80px 0;
+            background: #f8fafc;
+        }
+
+        .seo-content h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #333;
+        }
+
+        .seo-text {
+            max-width: 800px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #555;
+            text-align: justify;
+        }
+
+        .seo-text h3 {
+            font-size: 1.8rem;
+            margin: 2rem 0 1rem;
+            color: #333;
+        }
+
+        .seo-text p {
+            margin-bottom: 1.5rem;
+        }
+
+        /* Footer */
+        footer {
+            background: #1a1a1a;
+            color: white;
+            padding: 40px 0 20px;
+            text-align: center;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 1rem;
+            color: #6366f1;
+        }
+
+        .footer-section a {
+            color: #ccc;
+            text-decoration: none;
+            display: block;
+            margin: 0.5rem 0;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section a:hover {
+            color: #6366f1;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #333;
+            padding-top: 20px;
+            color: #999;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .mobile-menu {
+                display: flex;
+            }
+
+            .hero {
+                padding: 120px 0 60px;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .levels-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .ads-block {
+                display: flex;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <div class="logo">タイピング練習</div>
+            <ul class="nav-links">
+                <li><a href="#home">ホーム</a></li>
+                <li><a href="#features">機能</a></li>
+                <li><a href="#levels">レベル</a></li>
+                <li><a href="#about">について</a></li>
+            </ul>
+            <div class="mobile-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero" id="home">
+            <div class="container">
+                <div class="hero-content">
+                    <h1>タイピングスキルを<br>次のレベルへ</h1>
+                    <p>日本語タイピングをマスターして、より効率的なデジタルライフを始めましょう</p>
+                    <a href="#features" class="cta-button">今すぐ練習開始</a>
+                </div>
+            </div>
+        </section>
+
+        <div class="ads-block">
+            <div>広告スペース 720x90 (PCのみ表示)</div>
+        </div>
+
+        <section class="features" id="features">
+            <div class="container">
+                <h2>練習機能</h2>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">あ</div>
+                        <h3>ひらがな練習</h3>
+                        <p>基本的なひらがなタイピングから始めて、正確性とスピードを向上させます。初心者に最適な練習モードです。</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">カ</div>
+                        <h3>カタカナ練習</h3>
+                        <p>カタカナ特有のキー配置をマスターし、外来語やテクニカル用語の入力スピードを向上させます。</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">漢</div>
+                        <h3>漢字変換練習</h3>
+                        <p>実際の文章入力に近い環境で、漢字変換を含む総合的なタイピング能力を鍛えます。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="levels" id="levels">
+            <div class="container">
+                <h2>レベル別練習</h2>
+                <div class="levels-grid">
+                    <div class="level-card">
+                        <div class="level-number">1</div>
+                        <h3>初心者</h3>
+                        <p>基本的なキー配置を覚え、正確な指の動きを身につけます。ゆっくりでも確実にタイピングできることを目指します。</p>
+                    </div>
+                    <div class="level-card">
+                        <div class="level-number">2</div>
+                        <h3>中級者</h3>
+                        <p>スピードと正確性のバランスを取りながら、日常的な文章入力に必要なスキルを向上させます。</p>
+                    </div>
+                    <div class="level-card">
+                        <div class="level-number">3</div>
+                        <h3>上級者</h3>
+                        <p>高速タイピングと複雑な文章入力をマスターし、プロフェッショナルレベルのスキルを目指します。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="seo-content" id="about">
+            <div class="container">
+                <h2>タイピング練習について</h2>
+                <div class="seo-text">
+                    <h3>なぜタイピング練習が重要なのか</h3>
+                    <p>現代社会において、コンピューターでの文字入力は日常的な作業となっています。効率的なタイピングスキルを身につけることで、仕事や学習の生産性が大幅に向上します。特に日本語入力では、ひらがな、カタカナ、漢字の変換など、独特の技術が必要です。</p>
+                    
+                    <h3>効果的な練習方法</h3>
+                    <p>タイピング上達の秘訣は継続的な練習です。毎日少しずつでも練習を続けることで、筋肉記憶が形成され、考えなくても指が自然に動くようになります。正確性を重視し、徐々にスピードを上げることが重要です。</p>
+                    
+                    <h3>このサイトの特徴</h3>
+                    <p>当サイトでは、初心者から上級者まで対応した段階的な練習プログラムを提供しています。ゲーム感覚で楽しく学習できる仕組みや、詳細な統計機能により、自分の上達度を確認できます。無料でご利用いただけるので、気軽に始められます。</p>
+                    
+                    <h3>タイピングスキルの応用</h3>
+                    <p>優れたタイピングスキルは、プログラミング、ライティング、データ入力など様々な分野で活用できます。特にリモートワークが普及した現在、タイピングスキルは重要な職業スキルの一つとなっています。</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>練習メニュー</h3>
+                    <a href="#">ひらがな練習</a>
+                    <a href="#">カタカナ練習</a>
+                    <a href="#">漢字変換練習</a>
+                    <a href="#">速度測定</a>
+                </div>
+                <div class="footer-section">
+                    <h3>サポート</h3>
+                    <a href="#">使い方</a>
+                    <a href="#">よくある質問</a>
+                    <a href="#">お問い合わせ</a>
+                    <a href="#">プライバシーポリシー</a>
+                </div>
+                <div class="footer-section">
+                    <h3>フォローする</h3>
+                    <a href="#">Twitter</a>
+                    <a href="#">Facebook</a>
+                    <a href="#">YouTube</a>
+                    <a href="#">ブログ</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 タイピング練習. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Mobile menu toggle
+        const mobileMenu = document.querySelector('.mobile-menu');
+        const navLinks = document.querySelector('.nav-links');
+
+        mobileMenu.addEventListener('click', () => {
+            navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
+        });
+
+        // Header scroll effect
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(255, 255, 255, 0.98)';
+            } else {
+                header.style.background = 'rgba(255, 255, 255, 0.95)';
+            }
+        });
+
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe feature cards and level cards
+        document.querySelectorAll('.feature-card, .level-card').forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(30px)';
+            card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(card);
+        });
+
+        // Add typing animation to hero text
+        const heroTitle = document.querySelector('.hero h1');
+        const titleText = heroTitle.textContent;
+        heroTitle.textContent = '';
+        
+        let i = 0;
+        const typeWriter = () => {
+            if (i < titleText.length) {
+                heroTitle.textContent += titleText.charAt(i);
+                i++;
+                setTimeout(typeWriter, 100);
+            }
+        };
+        
+        setTimeout(typeWriter, 1000);
+
+        // Add particle effect to hero background
+        function createParticle() {
+            const particle = document.createElement('div');
+            particle.style.position = 'absolute';
+            particle.style.width = '4px';
+            particle.style.height = '4px';
+            particle.style.background = 'rgba(255, 255, 255, 0.6)';
+            particle.style.borderRadius = '50%';
+            particle.style.pointerEvents = 'none';
+            particle.style.left = Math.random() * 100 + '%';
+            particle.style.top = '100%';
+            particle.style.animation = `float-up ${3 + Math.random() * 4}s linear forwards`;
+            
+            document.querySelector('.hero').appendChild(particle);
+            
+            setTimeout(() => {
+                particle.remove();
+            }, 7000);
+        }
+
+        // Add CSS for particle animation
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes float-up {
+                to {
+                    transform: translateY(-100vh);
+                    opacity: 0;
+                }
+            }
+        `;
+        document.head.appendChild(style);
+
+        // Create particles periodically
+        setInterval(createParticle, 500);
+
+        // Japanese Typing Practice Game
+        class TypingPractice {
+            constructor() {
+                this.currentMode = 'hiragana';
+                this.currentIndex = 0;
+                this.startTime = null;
+                this.totalCharacters = 0;
+                this.correctCharacters = 0;
+                this.isActive = false;
+                
+                this.data = {
+                    hiragana: [
+                        {text: 'あ', romaji: 'a'},
+                        {text: 'か', romaji: 'ka'},
+                        {text: 'さ', romaji: 'sa'},
+                        {text: 'た', romaji: 'ta'},
+                        {text: 'な', romaji: 'na'},
+                        {text: 'は', romaji: 'ha'},
+                        {text: 'ま', romaji: 'ma'},
+                        {text: 'や', romaji: 'ya'},
+                        {text: 'ら', romaji: 'ra'},
+                        {text: 'わ', romaji: 'wa'}
+                    ],
+                    katakana: [
+                        {text: 'ア', romaji: 'a'},
+                        {text: 'カ', romaji: 'ka'},
+                        {text: 'サ', romaji: 'sa'},
+                        {text: 'タ', romaji: 'ta'},
+                        {text: 'ナ', romaji: 'na'},
+                        {text: 'ハ', romaji: 'ha'},
+                        {text: 'マ', romaji: 'ma'},
+                        {text: 'ヤ', romaji: 'ya'},
+                        {text: 'ラ', romaji: 'ra'},
+                        {text: 'ワ', romaji: 'wa'}
+                    ],
+                    words: [
+                        {text: 'こんにちは', romaji: 'konnichiwa'},
+                        {text: 'ありがとう', romaji: 'arigatou'},
+                        {text: 'おはよう', romaji: 'ohayou'},
+                        {text: 'さようなら', romaji: 'sayounara'},
+                        {text: 'すみません', romaji: 'sumimasen'},
+                        {text: 'がんばって', romaji: 'ganbatte'},
+                        {text: 'おつかれさま', romaji: 'otsukaresama'},
+                        {text: 'いらっしゃい', romaji: 'irasshai'},
+                        {text: 'おめでとう', romaji: 'omedetou'},
+                        {text: 'よろしく', romaji: 'yoroshiku'}
+                    ],
+                    sentences: [
+                        {text: '今日はいい天気です。', romaji: 'kyou wa ii tenki desu.'},
+                        {text: '私は学生です。', romaji: 'watashi wa gakusei desu.'},
+                        {text: '日本語を勉強しています。', romaji: 'nihongo wo benkyou shiteimasu.'},
+                        {text: 'タイピングが上手になりたい。', romaji: 'taipingu ga jouzu ni naritai.'},
+                        {text: '毎日練習しています。', romaji: 'mainichi renshuu shiteimasu.'}
+                    ]
+                };
+                
+                this.init();
+            }
+            
+            init() {
+                this.bindEvents();
+                this.updateDisplay();
+                this.updateStats();
+            }
+            
+            bindEvents() {
+                // Mode buttons
+                document.querySelectorAll('.mode-button').forEach(button => {
+                    button.addEventListener('click', () => {
+                        this.switchMode(button.dataset.mode);
+                    });
+                });
+                
+                // Control buttons
+                document.getElementById('startBtn').addEventListener('click', () => {
+                    this.start();
+                });
+                
+                document.getElementById('resetBtn').addEventListener('click', () => {
+                    this.reset();
+                });
+                
+                document.getElementById('skipBtn').addEventListener('click', () => {
+                    this.skip();
+                });
+                
+                // Input handling
+                const userInput = document.getElementById('userInput');
+                userInput.addEventListener('input', (e) => {
+                    this.handleInput(e.target.value);
+                });
+                
+                userInput.addEventListener('keydown', (e) => {
+                    if (e.key === 'Enter') {
+                        this.checkAnswer();
+                    }
+                });
+            }
+            
+            switchMode(mode) {
+                this.currentMode = mode;
+                this.reset();
+                
+                // Update active button
+                document.querySelectorAll('.mode-button').forEach(btn => {
+                    btn.classList.remove('active');
+                });
+                document.querySelector(`[data-mode="${mode}"]`).classList.add('active');
+            }
+            
+            start() {
+                this.isActive = true;
+                this.startTime = Date.now();
+                document.getElementById('userInput').focus();
+                document.getElementById('startBtn').textContent = '練習中...';
+            }
+            
+            reset() {
+                this.currentIndex = 0;
+                this.totalCharacters = 0;
+                this.correctCharacters = 0;
+                this.isActive = false;
+                this.startTime = null;
+                
+                document.getElementById('userInput').value = '';
+                document.getElementById('userInput').className = 'user-input';
+                document.getElementById('startBtn').textContent = '開始';
+                
+                this.updateDisplay();
+                this.updateStats();
+            }
+            
+            skip() {
+                if (this.isActive) {
+                    this.nextQuestion();
+                }
+            }
+            
+            updateDisplay() {
+                const currentData = this.data[this.currentMode];
+                const currentItem = currentData[this.currentIndex];
+                
+                document.getElementById('textToType').textContent = currentItem.text;
+                document.getElementById('romajiHint').textContent = currentItem.romaji;
+                document.getElementById('total').textContent = currentData.length;
+            }
+            
+            handleInput(value) {
+                if (!this.isActive) return;
+                
+                const userInput = document.getElementById('userInput');
+                const currentData = this.data[this.currentMode];
+                const currentItem = currentData[this.currentIndex];
+                
+                // Real-time feedback
+                if (currentItem.text.startsWith(value)) {
+                    userInput.className = 'user-input correct';
+                } else if (value.length > 0) {
+                    userInput.className = 'user-input incorrect';
+                } else {
+                    userInput.className = 'user-input';
+                }
+            }
+            
+            checkAnswer() {
+                if (!this.isActive) return;
+                
+                const userInput = document.getElementById('userInput');
+                const inputValue = userInput.value.trim();
+                const currentData = this.data[this.currentMode];
+                const currentItem = currentData[this.currentIndex];
+                
+                this.totalCharacters += currentItem.text.length;
+                
+                if (inputValue === currentItem.text) {
+                    this.correctCharacters += currentItem.text.length;
+                    userInput.className = 'user-input correct';
+                    
+                    setTimeout(() => {
+                        this.nextQuestion();
+                    }, 300);
+                } else {
+                    userInput.className = 'user-input incorrect';
+                    
+                    setTimeout(() => {
+                        userInput.className = 'user-input';
+                        userInput.select();
+                    }, 1000);
+                }
+                
+                this.updateStats();
+            }
+            
+            nextQuestion() {
+                const currentData = this.data[this.currentMode];
+                this.currentIndex++;
+                
+                if (this.currentIndex >= currentData.length) {
+                    this.completeRound();
+                    return;
+                }
+                
+                document.getElementById('userInput').value = '';
+                document.getElementById('userInput').className = 'user-input';
+                this.updateDisplay();
+                this.updateStats();
+            }
+            
+            completeRound() {
+                this.isActive = false;
+                document.getElementById('startBtn').textContent = '完了！';
+                
+                // Show completion message
+                setTimeout(() => {
+                    alert(`お疲れ様でした！\n正確率: ${this.getAccuracy()}%\n文字数/分: ${this.getWPM()}`);
+                    this.reset();
+                }, 500);
+            }
+            
+            updateStats() {
+                document.getElementById('wpm').textContent = this.getWPM();
+                document.getElementById('accuracy').textContent = this.getAccuracy();
+                document.getElementById('current').textContent = this.currentIndex + 1;
+                
+                // Update progress bar
+                const currentData = this.data[this.currentMode];
+                const progress = (this.currentIndex / currentData.length) * 100;
+                document.getElementById('progressFill').style.width = `${progress}%`;
+            }
+            
+            getWPM() {
+                if (!this.startTime) return 0;
+                const timeElapsed = (Date.now() - this.startTime) / 1000 / 60; // minutes
+                return Math.round(this.correctCharacters / timeElapsed) || 0;
+            }
+            
+            getAccuracy() {
+                if (this.totalCharacters === 0) return 100;
+                return Math.round((this.correctCharacters / this.totalCharacters) * 100);
+            }
+        }
+        
+        // Initialize typing practice when DOM is loaded
+        document.addEventListener('DOMContentLoaded', () => {
+            new TypingPractice();
+        });
+
+        // CTA button click effect
+        document.querySelector('.cta-button').addEventListener('click', function(e) {
+            const ripple = document.createElement('div');
+            const rect = this.getBoundingClientRect();
+            const size = Math.max(rect.width, rect.height);
+            const x = e.clientX - rect.left - size / 2;
+            const y = e.clientY - rect.top - size / 2;
+            
+            ripple.style.width = ripple.style.height = size + 'px';
+            ripple.style.left = x + 'px';
+            ripple.style.top = y + 'px';
+            ripple.style.position = 'absolute';
+            ripple.style.borderRadius = '50%';
+            ripple.style.background = 'rgba(255, 255, 255, 0.6)';
+            ripple.style.transform = 'scale(0)';
+            ripple.style.animation = 'ripple 0.6s linear';
+            ripple.style.pointerEvents = 'none';
+            
+            this.appendChild(ripple);
+            
+            setTimeout(() => {
+                ripple.remove();
+            }, 600);
+        });
+
+        // Add ripple animation
+        const rippleStyle = document.createElement('style');
+        rippleStyle.textContent = `
+            @keyframes ripple {
+                to {
+                    transform: scale(4);
+                    opacity: 0;
+                }
+            }
+        `;
+        document.head.appendChild(rippleStyle);
+    </script>
+</body>
+</html>
