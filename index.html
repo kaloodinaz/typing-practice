@@ -3,19 +3,44 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>タイピング練習 | 日本語タイピングスキル向上サイト</title>
-    <meta name="description" content="無料のタイピング練習サイト。ひらがな、カタカナ、漢字のタイピングスキルを向上させよう。初心者から上級者まで対応した練習コースを提供。">
-    <meta name="keywords" content="タイピング練習, 日本語タイピング, キーボード練習, タイピングゲーム, 無料タイピング">
-    <meta name="robots" content="index, follow">
-    <meta property="og:title" content="タイピング練習 | 日本語タイピングスキル向上サイト">
-    <meta property="og:description" content="無料のタイピング練習サイト。ひらがな、カタカナ、漢字のタイピングスキルを向上させよう。">
-    <meta property="og:type" content="website">
-    <meta name="twitter:card" content="summary_large_image">
+    <title>タイピング練習 - 日本語タイピングマスター</title>
     
-    <!-- SVG Favicon -->
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='grad' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%236366f1;stop-opacity:1' /%3E%3Cstop offset='100%25' style='stop-color:%238b5cf6;stop-opacity:1' /%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='100' height='100' rx='20' fill='url(%23grad)'/%3E%3Ctext x='50' y='35' font-family='Arial,sans-serif' font-size='24' font-weight='bold' text-anchor='middle' fill='white'%3E練%3C/text%3E%3Ctext x='50' y='75' font-family='Arial,sans-serif' font-size='16' text-anchor='middle' fill='white'%3EAB%3C/text%3E%3C/svg%3E">
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="無料の日本語タイピング練習サイト。初心者から上級者まで対応した現代的なタイピング練習ツールです。スピードと正確性を向上させましょう。">
+    <meta name="keywords" content="タイピング練習, 日本語入力, タイピングゲーム, キーボード練習, タイピング速度向上, 無料タイピング">
+    <meta name="author" content="Kaloo Dinaz">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph Tags -->
+    <meta property="og:title" content="タイピング練習 - 日本語タイピングマスター">
+    <meta property="og:description" content="無料の日本語タイピング練習サイト。現代的なデザインで効果的にタイピングスキルを向上させましょう。">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://kaloodinaz.github.io/typing-practice/">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="タイピング練習 - 日本語タイピングマスター">
+    <meta name="twitter:description" content="無料の日本語タイピング練習サイト。現代的なデザインで効果的にタイピングスキルを向上させましょう。">
+    
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="https://kaloodinaz.github.io/typing-practice/favicon.ico">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzIiIGhlaWdodD0iMzIiIHZpZXdCb3g9IjAgMCAzMiAzMiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjMyIiBoZWlnaHQ9IjMyIiByeD0iNiIgZmlsbD0iIzJkM2Y1ZiIvPgo8cGF0aCBkPSJNOCAyMlY2aDEwdjJIOFYyMnptMTYgMFY2djJoLTJ2MTRoMnptLTggMFY4aDJ2MTRoLTJ6IiBmaWxsPSIjZmZmZmZmIi8+CjxjaXJjbGUgY3g9IjI0IiBjeT0iOCIgcj0iMiIgZmlsbD0iIzY2ZGQ4NyIvPgo8L3N2Zz4K">
     
     <style>
+        :root {
+            --primary-color: #2d3f5f;
+            --accent-color: #66dd87;
+            --error-color: #ff6b6b;
+            --warning-color: #feca57;
+            --text-color: #2c3e50;
+            --bg-color: #f8f9fa;
+            --card-bg: #ffffff;
+            --border-color: #e9ecef;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --shadow-hover: 0 8px 25px rgba(0, 0, 0, 0.15);
+            --gradient: linear-gradient(135deg, var(--primary-color) 0%, #4a6741 100%);
+        }
+
         * {
             margin: 0;
             padding: 0;
@@ -23,10 +48,10 @@
         }
 
         body {
-            font-family: 'Hiragino Kaku Gothic ProN', 'Noto Sans CJK JP', 'Yu Gothic', 'Meiryo', sans-serif;
+            font-family: 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', 'Yu Gothic Medium', 'Meiryo', sans-serif;
             line-height: 1.6;
-            color: #333;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: var(--text-color);
+            background: var(--bg-color);
             min-height: 100vh;
         }
 
@@ -37,168 +62,55 @@
         }
 
         /* Header */
-        header {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            z-index: 1000;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-        }
-
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+        .header {
+            background: var(--gradient);
+            color: white;
             padding: 1rem 0;
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
         }
 
-        .logo {
-            font-size: 1.8rem;
-            font-weight: bold;
-            background: linear-gradient(135deg, #6366f1, #8b5cf6);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .nav-links {
-            display: flex;
-            list-style: none;
-            gap: 2rem;
-        }
-
-        .nav-links a {
-            text-decoration: none;
-            color: #333;
-            font-weight: 500;
-            transition: color 0.3s ease;
-        }
-
-        .nav-links a:hover {
-            color: #6366f1;
-        }
-
-        .mobile-menu {
-            display: none;
-            flex-direction: column;
-            cursor: pointer;
-        }
-
-        .mobile-menu span {
-            width: 25px;
-            height: 3px;
-            background: #333;
-            margin: 3px 0;
-            transition: 0.3s;
-        }
-
-        /* Hero Section */
-        .hero {
-            padding: 150px 0 80px;
+        .header h1 {
+            font-size: 2rem;
+            font-weight: 300;
             text-align: center;
-            color: white;
-            position: relative;
-            overflow: hidden;
+            letter-spacing: 2px;
         }
 
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><defs><pattern id="keyboard" patternUnits="userSpaceOnUse" width="100" height="60"><rect width="90" height="50" x="5" y="5" rx="8" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="2"/></pattern></defs><rect width="100%" height="100%" fill="url(%23keyboard)"/></svg>') repeat;
-            opacity: 0.3;
-            animation: float 20s infinite linear;
-        }
-
-        @keyframes float {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(-100px); }
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 2;
-        }
-
-        .hero h1 {
-            font-size: clamp(2.5rem, 5vw, 4rem);
-            margin-bottom: 1rem;
-            font-weight: 700;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-        }
-
-        .hero p {
-            font-size: clamp(1.1rem, 2vw, 1.3rem);
-            margin-bottom: 2rem;
+        .subtitle {
+            text-align: center;
             opacity: 0.9;
+            margin-top: 0.5rem;
+            font-size: 0.9rem;
         }
 
-        .cta-button {
-            display: inline-block;
-            background: linear-gradient(135deg, #ff6b6b, #ee5a6f);
-            color: white;
-            padding: 15px 40px;
-            text-decoration: none;
-            border-radius: 50px;
-            font-weight: bold;
-            font-size: 1.1rem;
-            transition: all 0.3s ease;
-            box-shadow: 0 10px 30px rgba(255, 107, 107, 0.4);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .cta-button::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
-            transition: left 0.5s;
-        }
-
-        .cta-button:hover::before {
-            left: 100%;
-        }
-
-        .cta-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 15px 40px rgba(255, 107, 107, 0.6);
-        }
-
-        /* Desktop Ads Block */
-        .ads-block {
+        /* Ad Block (PC Only) */
+        .ad-banner {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
             width: 720px;
             height: 90px;
-            background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
-            border: 2px dashed #ccc;
-            margin: 40px auto;
-            display: none;
+            margin: 20px auto;
+            display: flex;
             align-items: center;
             justify-content: center;
-            border-radius: 10px;
-            color: #666;
+            color: #999;
             font-size: 14px;
             position: relative;
             overflow: hidden;
         }
 
-        .ads-block::before {
+        .ad-banner::before {
             content: '';
             position: absolute;
             top: 0;
             left: -100%;
             width: 100%;
             height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
             animation: shimmer 2s infinite;
         }
 
@@ -207,166 +119,233 @@
             100% { left: 100%; }
         }
 
-        /* Features Section */
-        .features {
-            padding: 80px 0;
-            background: white;
+        @media (max-width: 768px) {
+            .ad-banner {
+                display: none;
+            }
         }
 
-        .features h2 {
-            text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 3rem;
-            color: #333;
-            position: relative;
+        /* Main Content */
+        .main {
+            padding: 2rem 0;
         }
 
-        .features h2::after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80px;
-            height: 4px;
-            background: linear-gradient(135deg, #6366f1, #8b5cf6);
-            border-radius: 2px;
-        }
-
-        .features-grid {
+        .stats-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 4rem;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-bottom: 2rem;
         }
 
-        .feature-card {
-            background: white;
-            padding: 2rem;
-            border-radius: 20px;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+        .stat-card {
+            background: var(--card-bg);
+            padding: 1.5rem;
+            border-radius: 12px;
+            box-shadow: var(--shadow);
             text-align: center;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
-            border: 1px solid rgba(99, 102, 241, 0.1);
         }
 
-        .feature-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+        .stat-card:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-hover);
         }
 
-        .feature-icon {
-            width: 80px;
-            height: 80px;
-            margin: 0 auto 1rem;
-            background: linear-gradient(135deg, #6366f1, #8b5cf6);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+        .stat-value {
             font-size: 2rem;
-            color: white;
-        }
-
-        .feature-card h3 {
-            font-size: 1.3rem;
-            margin-bottom: 1rem;
-            color: #333;
-        }
-
-        .feature-card p {
-            color: #666;
-            line-height: 1.8;
-        }
-
-        /* Levels Section */
-        .levels {
-            padding: 80px 0;
-            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
-            color: white;
-        }
-
-        .levels h2 {
-            text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 3rem;
-        }
-
-        .levels-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-top: 4rem;
-        }
-
-        .level-card {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            padding: 2rem;
-            border-radius: 20px;
-            text-align: center;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            transition: transform 0.3s ease;
-        }
-
-        .level-card:hover {
-            transform: scale(1.05);
-        }
-
-        .level-number {
-            font-size: 3rem;
             font-weight: bold;
-            opacity: 0.8;
-            margin-bottom: 1rem;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
         }
 
-        .level-card h3 {
+        .stat-label {
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        /* Typing Area */
+        .typing-area {
+            background: var(--card-bg);
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+            margin-bottom: 2rem;
+        }
+
+        .text-display {
             font-size: 1.5rem;
+            line-height: 1.8;
+            padding: 2rem;
+            background: #f8f9fa;
+            border-radius: 8px;
+            border-left: 4px solid var(--accent-color);
+            margin-bottom: 1.5rem;
+            font-family: 'Courier New', monospace;
+            word-wrap: break-word;
+        }
+
+        .char {
+            transition: all 0.1s ease;
+        }
+
+        .char.correct {
+            background-color: #d4edda;
+            color: #155724;
+        }
+
+        .char.incorrect {
+            background-color: #f8d7da;
+            color: #721c24;
+        }
+
+        .char.current {
+            background-color: var(--accent-color);
+            color: white;
+            animation: pulse 1s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+
+        .input-area {
+            width: 100%;
+            padding: 1rem;
+            font-size: 1.2rem;
+            border: 2px solid var(--border-color);
+            border-radius: 8px;
+            outline: none;
+            transition: border-color 0.3s ease;
+            font-family: 'Courier New', monospace;
+        }
+
+        .input-area:focus {
+            border-color: var(--accent-color);
+            box-shadow: 0 0 0 3px rgba(102, 221, 135, 0.1);
+        }
+
+        .controls {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .btn-primary {
+            background: var(--gradient);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .btn-secondary {
+            background: var(--border-color);
+            color: var(--text-color);
+        }
+
+        .btn-secondary:hover {
+            background: #dee2e6;
+        }
+
+        /* Timer */
+        .timer {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            text-align: center;
+            margin: 1rem 0;
+        }
+
+        /* Progress Bar */
+        .progress-container {
+            width: 100%;
+            height: 8px;
+            background: var(--border-color);
+            border-radius: 4px;
+            margin: 1rem 0;
+            overflow: hidden;
+        }
+
+        .progress-bar {
+            height: 100%;
+            background: var(--gradient);
+            width: 0%;
+            transition: width 0.3s ease;
+            border-radius: 4px;
+        }
+
+        /* Results */
+        .results {
+            background: var(--card-bg);
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+            text-align: center;
+            margin-bottom: 2rem;
+            display: none;
+        }
+
+        .results.show {
+            display: block;
+            animation: fadeInUp 0.5s ease;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .results h2 {
+            color: var(--primary-color);
             margin-bottom: 1rem;
         }
 
-        .level-card p {
-            opacity: 0.9;
-            line-height: 1.8;
+        .result-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
         }
 
-        /* SEO Content Section */
-        .seo-content {
-            padding: 80px 0;
-            background: #f8fafc;
+        .result-item {
+            padding: 1rem;
+            background: #f8f9fa;
+            border-radius: 8px;
         }
 
-        .seo-content h2 {
-            text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 3rem;
-            color: #333;
-        }
-
-        .seo-text {
-            max-width: 800px;
-            margin: 0 auto;
-            font-size: 1.1rem;
-            line-height: 1.8;
-            color: #555;
-            text-align: justify;
-        }
-
-        .seo-text h3 {
-            font-size: 1.8rem;
-            margin: 2rem 0 1rem;
-            color: #333;
-        }
-
-        .seo-text p {
-            margin-bottom: 1.5rem;
+        .result-value {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--accent-color);
         }
 
         /* Footer */
-        footer {
-            background: #1a1a1a;
+        .footer {
+            background: var(--primary-color);
             color: white;
-            padding: 40px 0 20px;
+            padding: 2rem 0;
             text-align: center;
         }
 
@@ -374,194 +353,417 @@
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 2rem;
-            margin-bottom: 2rem;
+            margin-bottom: 1rem;
         }
 
         .footer-section h3 {
             margin-bottom: 1rem;
-            color: #6366f1;
+            color: var(--accent-color);
         }
 
-        .footer-section a {
-            color: #ccc;
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-links a {
+            color: white;
             text-decoration: none;
-            display: block;
-            margin: 0.5rem 0;
             transition: color 0.3s ease;
         }
 
-        .footer-section a:hover {
-            color: #6366f1;
-        }
-
-        .footer-bottom {
-            border-top: 1px solid #333;
-            padding-top: 20px;
-            color: #999;
+        .footer-links a:hover {
+            color: var(--accent-color);
         }
 
         /* Responsive Design */
         @media (max-width: 768px) {
-            .nav-links {
-                display: none;
+            .header h1 {
+                font-size: 1.5rem;
             }
-
-            .mobile-menu {
-                display: flex;
+            
+            .typing-area {
+                padding: 1rem;
             }
-
-            .hero {
-                padding: 120px 0 60px;
+            
+            .text-display {
+                font-size: 1.2rem;
+                padding: 1rem;
             }
+            
+            .controls {
+                flex-direction: column;
+            }
+            
+            .btn {
+                width: 100%;
+            }
+            
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
 
-            .features-grid {
+        @media (max-width: 480px) {
+            .stats-grid {
                 grid-template-columns: 1fr;
             }
-
-            .levels-grid {
+            
+            .result-grid {
                 grid-template-columns: 1fr;
             }
         }
 
-        @media (min-width: 1024px) {
-            .ads-block {
-                display: flex;
+        /* Dark mode support */
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bg-color: #1a1a1a;
+                --card-bg: #2d2d2d;
+                --text-color: #e0e0e0;
+                --border-color: #404040;
             }
         }
     </style>
 </head>
 <body>
-    <header>
-        <nav class="container">
-            <div class="logo">タイピング練習</div>
-            <ul class="nav-links">
-                <li><a href="#home">ホーム</a></li>
-                <li><a href="#features">機能</a></li>
-                <li><a href="#levels">レベル</a></li>
-                <li><a href="#about">について</a></li>
-            </ul>
-            <div class="mobile-menu">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-        </nav>
+    <header class="header">
+        <div class="container">
+            <h1>🎯 タイピング練習</h1>
+            <p class="subtitle">現代的な日本語タイピング練習ツール</p>
+        </div>
     </header>
 
-    <main>
-        <section class="hero" id="home">
-            <div class="container">
-                <div class="hero-content">
-                    <h1>タイピングスキルを<br>次のレベルへ</h1>
-                    <p>日本語タイピングをマスターして、より効率的なデジタルライフを始めましょう</p>
-                    <a href="#features" class="cta-button">今すぐ練習開始</a>
+    <!-- Ad Banner (PC Only) -->
+    <div class="ad-banner">
+        <span>広告スペース 720x90</span>
+    </div>
+
+    <main class="main">
+        <div class="container">
+            <!-- Stats Section -->
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-value" id="wpm">0</div>
+                    <div class="stat-label">文字/分</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value" id="accuracy">100</div>
+                    <div class="stat-label">正確率 (%)</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value" id="time">60</div>
+                    <div class="stat-label">残り時間 (秒)</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value" id="errors">0</div>
+                    <div class="stat-label">エラー数</div>
                 </div>
             </div>
-        </section>
 
-        <div class="ads-block">
-            <div>広告スペース 720x90 (PCのみ表示)</div>
+            <!-- Typing Practice Area -->
+            <div class="typing-area">
+                <div class="progress-container">
+                    <div class="progress-bar" id="progressBar"></div>
+                </div>
+                
+                <div class="text-display" id="textDisplay"></div>
+                
+                <textarea 
+                    class="input-area" 
+                    id="textInput" 
+                    placeholder="ここに入力してください..." 
+                    disabled
+                ></textarea>
+                
+                <div class="controls">
+                    <button class="btn btn-primary" id="startBtn">スタート</button>
+                    <button class="btn btn-secondary" id="resetBtn">リセット</button>
+                    <button class="btn btn-secondary" id="newTextBtn">新しい文章</button>
+                </div>
+            </div>
+
+            <!-- Results Section -->
+            <div class="results" id="results">
+                <h2>🎉 練習結果</h2>
+                <div class="result-grid">
+                    <div class="result-item">
+                        <div class="result-value" id="finalWpm">0</div>
+                        <div>文字/分</div>
+                    </div>
+                    <div class="result-item">
+                        <div class="result-value" id="finalAccuracy">0</div>
+                        <div>正確率 (%)</div>
+                    </div>
+                    <div class="result-item">
+                        <div class="result-value" id="finalErrors">0</div>
+                        <div>エラー数</div>
+                    </div>
+                    <div class="result-item">
+                        <div class="result-value" id="finalTime">0</div>
+                        <div>経過時間 (秒)</div>
+                    </div>
+                </div>
+            </div>
         </div>
-
-        <section class="features" id="features">
-            <div class="container">
-                <h2>練習機能</h2>
-                <div class="features-grid">
-                    <div class="feature-card">
-                        <div class="feature-icon">あ</div>
-                        <h3>ひらがな練習</h3>
-                        <p>基本的なひらがなタイピングから始めて、正確性とスピードを向上させます。初心者に最適な練習モードです。</p>
-                    </div>
-                    <div class="feature-card">
-                        <div class="feature-icon">カ</div>
-                        <h3>カタカナ練習</h3>
-                        <p>カタカナ特有のキー配置をマスターし、外来語やテクニカル用語の入力スピードを向上させます。</p>
-                    </div>
-                    <div class="feature-card">
-                        <div class="feature-icon">漢</div>
-                        <h3>漢字変換練習</h3>
-                        <p>実際の文章入力に近い環境で、漢字変換を含む総合的なタイピング能力を鍛えます。</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="levels" id="levels">
-            <div class="container">
-                <h2>レベル別練習</h2>
-                <div class="levels-grid">
-                    <div class="level-card">
-                        <div class="level-number">1</div>
-                        <h3>初心者</h3>
-                        <p>基本的なキー配置を覚え、正確な指の動きを身につけます。ゆっくりでも確実にタイピングできることを目指します。</p>
-                    </div>
-                    <div class="level-card">
-                        <div class="level-number">2</div>
-                        <h3>中級者</h3>
-                        <p>スピードと正確性のバランスを取りながら、日常的な文章入力に必要なスキルを向上させます。</p>
-                    </div>
-                    <div class="level-card">
-                        <div class="level-number">3</div>
-                        <h3>上級者</h3>
-                        <p>高速タイピングと複雑な文章入力をマスターし、プロフェッショナルレベルのスキルを目指します。</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="seo-content" id="about">
-            <div class="container">
-                <h2>タイピング練習について</h2>
-                <div class="seo-text">
-                    <h3>なぜタイピング練習が重要なのか</h3>
-                    <p>現代社会において、コンピューターでの文字入力は日常的な作業となっています。効率的なタイピングスキルを身につけることで、仕事や学習の生産性が大幅に向上します。特に日本語入力では、ひらがな、カタカナ、漢字の変換など、独特の技術が必要です。</p>
-                    
-                    <h3>効果的な練習方法</h3>
-                    <p>タイピング上達の秘訣は継続的な練習です。毎日少しずつでも練習を続けることで、筋肉記憶が形成され、考えなくても指が自然に動くようになります。正確性を重視し、徐々にスピードを上げることが重要です。</p>
-                    
-                    <h3>このサイトの特徴</h3>
-                    <p>当サイトでは、初心者から上級者まで対応した段階的な練習プログラムを提供しています。ゲーム感覚で楽しく学習できる仕組みや、詳細な統計機能により、自分の上達度を確認できます。無料でご利用いただけるので、気軽に始められます。</p>
-                    
-                    <h3>タイピングスキルの応用</h3>
-                    <p>優れたタイピングスキルは、プログラミング、ライティング、データ入力など様々な分野で活用できます。特にリモートワークが普及した現在、タイピングスキルは重要な職業スキルの一つとなっています。</p>
-                </div>
-            </div>
-        </section>
     </main>
 
-    <footer>
+    <footer class="footer">
         <div class="container">
             <div class="footer-content">
                 <div class="footer-section">
-                    <h3>練習メニュー</h3>
-                    <a href="#">ひらがな練習</a>
-                    <a href="#">カタカナ練習</a>
-                    <a href="#">漢字変換練習</a>
-                    <a href="#">速度測定</a>
+                    <h3>タイピング練習について</h3>
+                    <p>現代的なデザインの無料日本語タイピング練習サイトです。初心者から上級者まで、あなたのレベルに合わせて効果的にタイピングスキルを向上させることができます。</p>
                 </div>
                 <div class="footer-section">
-                    <h3>サポート</h3>
-                    <a href="#">使い方</a>
-                    <a href="#">よくある質問</a>
-                    <a href="#">お問い合わせ</a>
-                    <a href="#">プライバシーポリシー</a>
+                    <h3>機能</h3>
+                    <ul class="footer-links">
+                        <li><a href="#0">リアルタイム統計</a></li>
+                      
+                    </ul>
                 </div>
                 <div class="footer-section">
-                    <h3>フォローする</h3>
-                    <a href="#">Twitter</a>
-                    <a href="#">Facebook</a>
-                    <a href="#">YouTube</a>
-                    <a href="#">ブログ</a>
+                    <h3>練習のコツ</h3>
+                    <ul class="footer-links">
+                        <li><a href="#0">正しい姿勢を保つ</a></li>
+                        
+                    </ul>
                 </div>
             </div>
-            <div class="footer-bottom">
-                <p>&copy; 2025 タイピング練習. All rights reserved.</p>
-            </div>
+            <p>&copy; 2025 タイピング練習 - すべての権利を保有 | 無料オンライン練習サイト</p>
         </div>
     </footer>
 
     <script>
-        // Smooth scrolling for navigation links
+        class TypingPractice {
+            constructor() {
+                this.sampleTexts = [
+                    "こんにちは。今日は良い天気ですね。タイピングの練習を始めましょう。正確性を重視して、ゆっくりと入力してください。",
+                    "日本語のタイピング練習は継続が大切です。毎日少しずつでも練習することで、確実にスピードと正確性が向上します。",
+                    "現代社会では、コンピューターのスキルが非常に重要です。タイピングは基本的なスキルの一つですので、しっかりと身につけましょう。",
+                    "桜の花が咲く季節になりました。美しい景色を見ながら、心を落ち着けてタイピングの練習をしてみてください。集中力も向上するでしょう。",
+                    "プログラミングを学ぶ上で、タイピング速度は非常に重要な要素です。コードを素早く正確に入力できるようになると、開発効率が格段に向上します。"
+                ];
+
+                this.currentText = '';
+                this.currentIndex = 0;
+                this.startTime = null;
+                this.timerInterval = null;
+                this.timeLimit = 60;
+                this.remainingTime = this.timeLimit;
+                this.isTyping = false;
+                this.errors = 0;
+                this.correctChars = 0;
+
+                this.initElements();
+                this.initEventListeners();
+                this.loadNewText();
+            }
+
+            initElements() {
+                this.elements = {
+                    textDisplay: document.getElementById('textDisplay'),
+                    textInput: document.getElementById('textInput'),
+                    startBtn: document.getElementById('startBtn'),
+                    resetBtn: document.getElementById('resetBtn'),
+                    newTextBtn: document.getElementById('newTextBtn'),
+                    wpm: document.getElementById('wpm'),
+                    accuracy: document.getElementById('accuracy'),
+                    time: document.getElementById('time'),
+                    errors: document.getElementById('errors'),
+                    progressBar: document.getElementById('progressBar'),
+                    results: document.getElementById('results'),
+                    finalWpm: document.getElementById('finalWpm'),
+                    finalAccuracy: document.getElementById('finalAccuracy'),
+                    finalErrors: document.getElementById('finalErrors'),
+                    finalTime: document.getElementById('finalTime')
+                };
+            }
+
+            initEventListeners() {
+                this.elements.startBtn.addEventListener('click', () => this.startTyping());
+                this.elements.resetBtn.addEventListener('click', () => this.resetTyping());
+                this.elements.newTextBtn.addEventListener('click', () => this.loadNewText());
+                this.elements.textInput.addEventListener('input', (e) => this.handleInput(e));
+                this.elements.textInput.addEventListener('keydown', (e) => this.handleKeyDown(e));
+            }
+
+            loadNewText() {
+                this.currentText = this.sampleTexts[Math.floor(Math.random() * this.sampleTexts.length)];
+                this.displayText();
+                this.resetStats();
+            }
+
+            displayText() {
+                this.elements.textDisplay.innerHTML = this.currentText
+                    .split('')
+                    .map((char, index) => `<span class="char" data-index="${index}">${char}</span>`)
+                    .join('');
+            }
+
+            startTyping() {
+                if (this.isTyping) return;
+                
+                this.isTyping = true;
+                this.startTime = Date.now();
+                this.remainingTime = this.timeLimit;
+                
+                this.elements.textInput.disabled = false;
+                this.elements.textInput.focus();
+                this.elements.startBtn.textContent = '入力中...';
+                this.elements.startBtn.disabled = true;
+                this.elements.results.classList.remove('show');
+
+                this.startTimer();
+            }
+
+            startTimer() {
+                this.timerInterval = setInterval(() => {
+                    this.remainingTime--;
+                    this.elements.time.textContent = this.remainingTime;
+
+                    if (this.remainingTime <= 0) {
+                        this.endTyping();
+                    }
+                }, 1000);
+            }
+
+            handleInput(e) {
+                if (!this.isTyping) return;
+
+                const inputValue = e.target.value;
+                this.currentIndex = inputValue.length;
+
+                this.updateDisplay(inputValue);
+                this.updateStats();
+                this.updateProgress();
+
+                // Check if completed
+                if (inputValue === this.currentText) {
+                    this.endTyping();
+                }
+            }
+
+            handleKeyDown(e) {
+                if (e.key === 'Tab') {
+                    e.preventDefault();
+                }
+            }
+
+            updateDisplay(inputValue) {
+                const chars = this.elements.textDisplay.querySelectorAll('.char');
+                
+                chars.forEach((char, index) => {
+                    char.className = 'char';
+                    
+                    if (index < inputValue.length) {
+                        if (inputValue[index] === this.currentText[index]) {
+                            char.classList.add('correct');
+                        } else {
+                            char.classList.add('incorrect');
+                        }
+                    } else if (index === inputValue.length) {
+                        char.classList.add('current');
+                    }
+                });
+            }
+
+            updateStats() {
+                const inputValue = this.elements.textInput.value;
+                const elapsedMinutes = (Date.now() - this.startTime) / 60000;
+                
+                // Calculate WPM
+                const wpm = Math.round(inputValue.length / elapsedMinutes) || 0;
+                this.elements.wpm.textContent = wpm;
+
+                // Calculate accuracy and errors
+                let correct = 0;
+                let errors = 0;
+
+                for (let i = 0; i < inputValue.length; i++) {
+                    if (inputValue[i] === this.currentText[i]) {
+                        correct++;
+                    } else {
+                        errors++;
+                    }
+                }
+
+                this.correctChars = correct;
+                this.errors = errors;
+
+                const accuracy = inputValue.length > 0 ? Math.round((correct / inputValue.length) * 100) : 100;
+                this.elements.accuracy.textContent = accuracy;
+                this.elements.errors.textContent = errors;
+            }
+
+            updateProgress() {
+                const progress = (this.currentIndex / this.currentText.length) * 100;
+                this.elements.progressBar.style.width = `${Math.min(progress, 100)}%`;
+            }
+
+            endTyping() {
+                this.isTyping = false;
+                clearInterval(this.timerInterval);
+                
+                this.elements.textInput.disabled = true;
+                this.elements.startBtn.textContent = 'スタート';
+                this.elements.startBtn.disabled = false;
+
+                this.showResults();
+            }
+
+            showResults() {
+                const totalTime = this.timeLimit - this.remainingTime;
+                const wpm = Math.round((this.elements.textInput.value.length / (totalTime / 60))) || 0;
+                const accuracy = this.elements.textInput.value.length > 0 
+                    ? Math.round((this.correctChars / this.elements.textInput.value.length) * 100) 
+                    : 100;
+
+                this.elements.finalWpm.textContent = wpm;
+                this.elements.finalAccuracy.textContent = accuracy;
+                this.elements.finalErrors.textContent = this.errors;
+                this.elements.finalTime.textContent = totalTime;
+
+                this.elements.results.classList.add('show');
+                this.elements.results.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }
+
+            resetTyping() {
+                this.isTyping = false;
+                clearInterval(this.timerInterval);
+                
+                this.elements.textInput.value = '';
+                this.elements.textInput.disabled = true;
+                this.elements.startBtn.textContent = 'スタート';
+                this.elements.startBtn.disabled = false;
+                this.elements.results.classList.remove('show');
+
+                this.displayText();
+                this.resetStats();
+            }
+
+            resetStats() {
+                this.currentIndex = 0;
+                this.errors = 0;
+                this.correctChars = 0;
+                this.remainingTime = this.timeLimit;
+                
+                this.elements.wpm.textContent = '0';
+                this.elements.accuracy.textContent = '100';
+                this.elements.time.textContent = this.timeLimit;
+                this.elements.errors.textContent = '0';
+                this.elements.progressBar.style.width = '0%';
+            }
+        }
+
+        // Initialize the typing practice when the page loads
+        document.addEventListener('DOMContentLoaded', () => {
+            new TypingPractice();
+        });
+
+        // Add some smooth scrolling behavior
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
@@ -574,382 +776,6 @@
                 }
             });
         });
-
-        // Mobile menu toggle
-        const mobileMenu = document.querySelector('.mobile-menu');
-        const navLinks = document.querySelector('.nav-links');
-
-        mobileMenu.addEventListener('click', () => {
-            navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
-        });
-
-        // Header scroll effect
-        window.addEventListener('scroll', () => {
-            const header = document.querySelector('header');
-            if (window.scrollY > 100) {
-                header.style.background = 'rgba(255, 255, 255, 0.98)';
-            } else {
-                header.style.background = 'rgba(255, 255, 255, 0.95)';
-            }
-        });
-
-        // Intersection Observer for animations
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
-                }
-            });
-        }, observerOptions);
-
-        // Observe feature cards and level cards
-        document.querySelectorAll('.feature-card, .level-card').forEach(card => {
-            card.style.opacity = '0';
-            card.style.transform = 'translateY(30px)';
-            card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-            observer.observe(card);
-        });
-
-        // Add typing animation to hero text
-        const heroTitle = document.querySelector('.hero h1');
-        const titleText = heroTitle.textContent;
-        heroTitle.textContent = '';
-        
-        let i = 0;
-        const typeWriter = () => {
-            if (i < titleText.length) {
-                heroTitle.textContent += titleText.charAt(i);
-                i++;
-                setTimeout(typeWriter, 100);
-            }
-        };
-        
-        setTimeout(typeWriter, 1000);
-
-        // Add particle effect to hero background
-        function createParticle() {
-            const particle = document.createElement('div');
-            particle.style.position = 'absolute';
-            particle.style.width = '4px';
-            particle.style.height = '4px';
-            particle.style.background = 'rgba(255, 255, 255, 0.6)';
-            particle.style.borderRadius = '50%';
-            particle.style.pointerEvents = 'none';
-            particle.style.left = Math.random() * 100 + '%';
-            particle.style.top = '100%';
-            particle.style.animation = `float-up ${3 + Math.random() * 4}s linear forwards`;
-            
-            document.querySelector('.hero').appendChild(particle);
-            
-            setTimeout(() => {
-                particle.remove();
-            }, 7000);
-        }
-
-        // Add CSS for particle animation
-        const style = document.createElement('style');
-        style.textContent = `
-            @keyframes float-up {
-                to {
-                    transform: translateY(-100vh);
-                    opacity: 0;
-                }
-            }
-        `;
-        document.head.appendChild(style);
-
-        // Create particles periodically
-        setInterval(createParticle, 500);
-
-        // Japanese Typing Practice Game
-        class TypingPractice {
-            constructor() {
-                this.currentMode = 'hiragana';
-                this.currentIndex = 0;
-                this.startTime = null;
-                this.totalCharacters = 0;
-                this.correctCharacters = 0;
-                this.isActive = false;
-                
-                this.data = {
-                    hiragana: [
-                        {text: 'あ', romaji: 'a'},
-                        {text: 'か', romaji: 'ka'},
-                        {text: 'さ', romaji: 'sa'},
-                        {text: 'た', romaji: 'ta'},
-                        {text: 'な', romaji: 'na'},
-                        {text: 'は', romaji: 'ha'},
-                        {text: 'ま', romaji: 'ma'},
-                        {text: 'や', romaji: 'ya'},
-                        {text: 'ら', romaji: 'ra'},
-                        {text: 'わ', romaji: 'wa'}
-                    ],
-                    katakana: [
-                        {text: 'ア', romaji: 'a'},
-                        {text: 'カ', romaji: 'ka'},
-                        {text: 'サ', romaji: 'sa'},
-                        {text: 'タ', romaji: 'ta'},
-                        {text: 'ナ', romaji: 'na'},
-                        {text: 'ハ', romaji: 'ha'},
-                        {text: 'マ', romaji: 'ma'},
-                        {text: 'ヤ', romaji: 'ya'},
-                        {text: 'ラ', romaji: 'ra'},
-                        {text: 'ワ', romaji: 'wa'}
-                    ],
-                    words: [
-                        {text: 'こんにちは', romaji: 'konnichiwa'},
-                        {text: 'ありがとう', romaji: 'arigatou'},
-                        {text: 'おはよう', romaji: 'ohayou'},
-                        {text: 'さようなら', romaji: 'sayounara'},
-                        {text: 'すみません', romaji: 'sumimasen'},
-                        {text: 'がんばって', romaji: 'ganbatte'},
-                        {text: 'おつかれさま', romaji: 'otsukaresama'},
-                        {text: 'いらっしゃい', romaji: 'irasshai'},
-                        {text: 'おめでとう', romaji: 'omedetou'},
-                        {text: 'よろしく', romaji: 'yoroshiku'}
-                    ],
-                    sentences: [
-                        {text: '今日はいい天気です。', romaji: 'kyou wa ii tenki desu.'},
-                        {text: '私は学生です。', romaji: 'watashi wa gakusei desu.'},
-                        {text: '日本語を勉強しています。', romaji: 'nihongo wo benkyou shiteimasu.'},
-                        {text: 'タイピングが上手になりたい。', romaji: 'taipingu ga jouzu ni naritai.'},
-                        {text: '毎日練習しています。', romaji: 'mainichi renshuu shiteimasu.'}
-                    ]
-                };
-                
-                this.init();
-            }
-            
-            init() {
-                this.bindEvents();
-                this.updateDisplay();
-                this.updateStats();
-            }
-            
-            bindEvents() {
-                // Mode buttons
-                document.querySelectorAll('.mode-button').forEach(button => {
-                    button.addEventListener('click', () => {
-                        this.switchMode(button.dataset.mode);
-                    });
-                });
-                
-                // Control buttons
-                document.getElementById('startBtn').addEventListener('click', () => {
-                    this.start();
-                });
-                
-                document.getElementById('resetBtn').addEventListener('click', () => {
-                    this.reset();
-                });
-                
-                document.getElementById('skipBtn').addEventListener('click', () => {
-                    this.skip();
-                });
-                
-                // Input handling
-                const userInput = document.getElementById('userInput');
-                userInput.addEventListener('input', (e) => {
-                    this.handleInput(e.target.value);
-                });
-                
-                userInput.addEventListener('keydown', (e) => {
-                    if (e.key === 'Enter') {
-                        this.checkAnswer();
-                    }
-                });
-            }
-            
-            switchMode(mode) {
-                this.currentMode = mode;
-                this.reset();
-                
-                // Update active button
-                document.querySelectorAll('.mode-button').forEach(btn => {
-                    btn.classList.remove('active');
-                });
-                document.querySelector(`[data-mode="${mode}"]`).classList.add('active');
-            }
-            
-            start() {
-                this.isActive = true;
-                this.startTime = Date.now();
-                document.getElementById('userInput').focus();
-                document.getElementById('startBtn').textContent = '練習中...';
-            }
-            
-            reset() {
-                this.currentIndex = 0;
-                this.totalCharacters = 0;
-                this.correctCharacters = 0;
-                this.isActive = false;
-                this.startTime = null;
-                
-                document.getElementById('userInput').value = '';
-                document.getElementById('userInput').className = 'user-input';
-                document.getElementById('startBtn').textContent = '開始';
-                
-                this.updateDisplay();
-                this.updateStats();
-            }
-            
-            skip() {
-                if (this.isActive) {
-                    this.nextQuestion();
-                }
-            }
-            
-            updateDisplay() {
-                const currentData = this.data[this.currentMode];
-                const currentItem = currentData[this.currentIndex];
-                
-                document.getElementById('textToType').textContent = currentItem.text;
-                document.getElementById('romajiHint').textContent = currentItem.romaji;
-                document.getElementById('total').textContent = currentData.length;
-            }
-            
-            handleInput(value) {
-                if (!this.isActive) return;
-                
-                const userInput = document.getElementById('userInput');
-                const currentData = this.data[this.currentMode];
-                const currentItem = currentData[this.currentIndex];
-                
-                // Real-time feedback
-                if (currentItem.text.startsWith(value)) {
-                    userInput.className = 'user-input correct';
-                } else if (value.length > 0) {
-                    userInput.className = 'user-input incorrect';
-                } else {
-                    userInput.className = 'user-input';
-                }
-            }
-            
-            checkAnswer() {
-                if (!this.isActive) return;
-                
-                const userInput = document.getElementById('userInput');
-                const inputValue = userInput.value.trim();
-                const currentData = this.data[this.currentMode];
-                const currentItem = currentData[this.currentIndex];
-                
-                this.totalCharacters += currentItem.text.length;
-                
-                if (inputValue === currentItem.text) {
-                    this.correctCharacters += currentItem.text.length;
-                    userInput.className = 'user-input correct';
-                    
-                    setTimeout(() => {
-                        this.nextQuestion();
-                    }, 300);
-                } else {
-                    userInput.className = 'user-input incorrect';
-                    
-                    setTimeout(() => {
-                        userInput.className = 'user-input';
-                        userInput.select();
-                    }, 1000);
-                }
-                
-                this.updateStats();
-            }
-            
-            nextQuestion() {
-                const currentData = this.data[this.currentMode];
-                this.currentIndex++;
-                
-                if (this.currentIndex >= currentData.length) {
-                    this.completeRound();
-                    return;
-                }
-                
-                document.getElementById('userInput').value = '';
-                document.getElementById('userInput').className = 'user-input';
-                this.updateDisplay();
-                this.updateStats();
-            }
-            
-            completeRound() {
-                this.isActive = false;
-                document.getElementById('startBtn').textContent = '完了！';
-                
-                // Show completion message
-                setTimeout(() => {
-                    alert(`お疲れ様でした！\n正確率: ${this.getAccuracy()}%\n文字数/分: ${this.getWPM()}`);
-                    this.reset();
-                }, 500);
-            }
-            
-            updateStats() {
-                document.getElementById('wpm').textContent = this.getWPM();
-                document.getElementById('accuracy').textContent = this.getAccuracy();
-                document.getElementById('current').textContent = this.currentIndex + 1;
-                
-                // Update progress bar
-                const currentData = this.data[this.currentMode];
-                const progress = (this.currentIndex / currentData.length) * 100;
-                document.getElementById('progressFill').style.width = `${progress}%`;
-            }
-            
-            getWPM() {
-                if (!this.startTime) return 0;
-                const timeElapsed = (Date.now() - this.startTime) / 1000 / 60; // minutes
-                return Math.round(this.correctCharacters / timeElapsed) || 0;
-            }
-            
-            getAccuracy() {
-                if (this.totalCharacters === 0) return 100;
-                return Math.round((this.correctCharacters / this.totalCharacters) * 100);
-            }
-        }
-        
-        // Initialize typing practice when DOM is loaded
-        document.addEventListener('DOMContentLoaded', () => {
-            new TypingPractice();
-        });
-
-        // CTA button click effect
-        document.querySelector('.cta-button').addEventListener('click', function(e) {
-            const ripple = document.createElement('div');
-            const rect = this.getBoundingClientRect();
-            const size = Math.max(rect.width, rect.height);
-            const x = e.clientX - rect.left - size / 2;
-            const y = e.clientY - rect.top - size / 2;
-            
-            ripple.style.width = ripple.style.height = size + 'px';
-            ripple.style.left = x + 'px';
-            ripple.style.top = y + 'px';
-            ripple.style.position = 'absolute';
-            ripple.style.borderRadius = '50%';
-            ripple.style.background = 'rgba(255, 255, 255, 0.6)';
-            ripple.style.transform = 'scale(0)';
-            ripple.style.animation = 'ripple 0.6s linear';
-            ripple.style.pointerEvents = 'none';
-            
-            this.appendChild(ripple);
-            
-            setTimeout(() => {
-                ripple.remove();
-            }, 600);
-        });
-
-        // Add ripple animation
-        const rippleStyle = document.createElement('style');
-        rippleStyle.textContent = `
-            @keyframes ripple {
-                to {
-                    transform: scale(4);
-                    opacity: 0;
-                }
-            }
-        `;
-        document.head.appendChild(rippleStyle);
     </script>
 </body>
 </html>
